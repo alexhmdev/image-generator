@@ -6,7 +6,6 @@ import './env.js';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import router from './routes/router.js';
-import verifyApiKey from './middlewares/verifyApiKey.js';
 // import morgan
 import morgan from 'morgan';
 // TODO: Add SDKs for Firebase products that you want to use
@@ -44,8 +43,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', router);
-
-app.use(verifyApiKey);
 
 // routes
 app.get('/', (req, res) => {
